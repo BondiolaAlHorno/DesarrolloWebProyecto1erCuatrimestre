@@ -4,9 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @EqualsAndHashCode
 @Getter
 @Setter
@@ -20,5 +17,12 @@ public class Persona {
         this.apellido = apellido;
         this.dni = dni;
     }
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", dni=" + dni +
+                '}';
+    }
 }
-
