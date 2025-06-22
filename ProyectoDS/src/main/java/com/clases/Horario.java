@@ -45,15 +45,61 @@ public class Horario {
             return false;
         }
         
-        // Acá debería implementar la lógica de comparación de horas
-        // Por ahora retorna false, pero debería convertir las horas a un formato comparable
-        return false;
+        try {
+            // Convertir horas a minutos desde medianoche para facilitar comparación
+            int inicioEste = convertirHoraAMinutos(this.horaInicio);
+            int finEste = convertirHoraAMinutos(this.horaFin);
+            int inicioOtro = convertirHoraAMinutos(otroHorario.horaInicio);
+            int finOtro = convertirHoraAMinutos(otroHorario.horaFin);
+            
+            // Verificar si hay solapamiento
+            // Dos horarios se solapan si: inicio1 < fin2 && inicio2 < fin1
+            return inicioEste < finOtro && inicioOtro < finEste;
+            
+        } catch (Exception e) {
+            // Si hay error en el formato de hora, asumir que no se solapan
+            return false;
+        }
+    }
+    
+    // Método auxiliar para convertir hora en formato "HH:mm" a minutos desde medianoche
+    private int convertirHoraAMinutos(String hora) {
+        if (hora == null || hora.isEmpty()) {
+            throw new IllegalArgumentException("Hora no válida");
+        }
+        
+        String[] partes = hora.split(":");
+        if (partes.length != 2) {
+            throw new IllegalArgumentException("Formato de hora inválido. Use HH:mm");
+        }
+        
+        int horas = Integer.parseInt(partes[0]);
+        int minutos = Integer.parseInt(partes[1]);
+        
+        if (horas < 0 || horas > 23 || minutos < 0 || minutos > 59) {
+            throw new IllegalArgumentException("Hora fuera del rango válido");
+        }
+        
+        return horas * 60 + minutos;
     }
 
     // Método para verificar si el horario es válido
     public boolean esValido() {
-        return horaInicio != null && horaFin != null && dia != null &&
-               !horaInicio.isEmpty() && !horaFin.isEmpty() && !dia.isEmpty();
+        if (horaInicio == null || horaFin == null || dia == null ||
+            horaInicio.isEmpty() || horaFin.isEmpty() || dia.isEmpty()) {
+            return false;
+        }
+        
+        try {
+            int inicioMinutos = convertirHoraAMinutos(horaInicio);
+            int finMinutos = convertirHoraAMinutos(horaFin);
+            
+            // La hora de fin debe ser posterior a la hora de inicio
+            return finMinutos > inicioMinutos;
+            
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override
