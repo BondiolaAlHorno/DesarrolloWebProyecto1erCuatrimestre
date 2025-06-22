@@ -45,8 +45,8 @@ public class Horario {
             return false;
         }
         
-        // Aquí deberías implementar la lógica de comparación de horas
-        // Por ahora retorno false, pero deberías convertir las horas a un formato comparable
+        // Acá debería implementar la lógica de comparación de horas
+        // Por ahora retorna false, pero debería convertir las horas a un formato comparable
         return false;
     }
 
