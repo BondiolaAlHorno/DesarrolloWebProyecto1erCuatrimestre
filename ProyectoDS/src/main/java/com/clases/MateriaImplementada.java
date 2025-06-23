@@ -105,6 +105,19 @@ public class MateriaImplementada {
         return false;
     }
 
+    public boolean puedeAgregarDocente(Docente docente) {
+        // Validar que el docente no tenga conflictos de horario
+        return docente != null && !this.docente.contains(docente);
+    }
+    
+    public boolean validarIntegridad() {
+        return materia != null && 
+               comision != null && 
+               !docente.isEmpty() && 
+               !horario.isEmpty() &&
+               !tieneConflictoHorario();
+    }
+
     @Override
     public String toString() {
         return "MateriaImplementada{" +
