@@ -20,4 +20,6 @@ public class Asistencia{
         this.asistencia = asistencia;
         this.materia = materia;
     }
+
+
 }

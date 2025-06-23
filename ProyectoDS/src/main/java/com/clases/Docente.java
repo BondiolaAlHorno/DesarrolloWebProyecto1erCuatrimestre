@@ -10,8 +10,8 @@ import java.util.List;
 @Setter
 public class Docente extends  Persona{
     private Integer legajo;
-    private List<Asistencia> asistencia;
-    private MateriaImplementada materia;
+    private List<AsistenciaDocente> asistencia;
+    private List<MateriaImplementada> materia;
 
     public Docente(String nombre,String apellido,String dni,Integer legajo,List<Asistencia> asistencia,MateriaImplementada materia){
         super(nombre, apellido, dni);

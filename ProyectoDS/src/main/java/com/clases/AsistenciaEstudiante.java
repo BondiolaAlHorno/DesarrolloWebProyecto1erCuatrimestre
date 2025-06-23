@@ -32,4 +32,6 @@ public class AsistenciaEstudiante extends Asistencia{
     public List<Object> recuperarAsistenciaEstudiante(){
         return new ArrayList<>(List.of(this.getFecha(),this.getAsistencia(),this.getMateria(),this.getEstudiante()));
     }
+
+
 }
