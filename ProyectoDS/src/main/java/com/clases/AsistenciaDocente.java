@@ -18,14 +18,12 @@ public class AsistenciaDocente extends Asistencia {
     private Time horarioIngreso;
     private Time horarioSalida;
     private Docente docente;
-    private Documento justificacion;
 
     public AsistenciaDocente(LocalDate fecha, String asistencia, MateriaImplementada materia, Time horarioIngreso, Time horarioSalida, Docente docente) {
         super(fecha, asistencia, materia);
         this.horarioIngreso = horarioIngreso;
         this.horarioSalida = horarioSalida;
         this.docente = docente;
-        this.justificacion = null;
     }
     public static AsistenciaDocente altaAsistenciaDocente(LocalDate fecha, String asistencia, MateriaImplementada materia,Time horarioIngreso, Time horarioSalida, Docente docente ) {
         return new AsistenciaDocente(fecha, asistencia, materia, horarioIngreso, horarioSalida, docente);
@@ -46,10 +44,6 @@ public class AsistenciaDocente extends Asistencia {
     public List<AsistenciaDocente> consultarHistorial() {
             return historialAsistencias;
         }
-
-    public void justificarInasistencia(Documento justificacion){
-        this.setJustificacion(justificacion);
-    }
 
 }
 
