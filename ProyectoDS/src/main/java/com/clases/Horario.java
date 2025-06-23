@@ -35,6 +35,39 @@ public class Horario {
         this.setDia(dia);
     }
 
+    public void setHoraInicio(String horaInicio) {
+        if (horaInicio == null || horaInicio.trim().isEmpty()) {
+            throw new IllegalArgumentException("La hora de inicio no puede ser nula o vacía");
+        }
+        if (!validarFormatoHora(horaInicio.trim())) {
+            throw new IllegalArgumentException("Formato de hora inválido. Use HH:mm");
+        }
+        this.horaInicio = horaInicio.trim();
+    }
+    
+    public void setHoraFin(String horaFin) {
+        if (horaFin == null || horaFin.trim().isEmpty()) {
+            throw new IllegalArgumentException("La hora de fin no puede ser nula o vacía");
+        }
+        if (!validarFormatoHora(horaFin.trim())) {
+            throw new IllegalArgumentException("Formato de hora inválido. Use HH:mm");
+        }
+        this.horaFin = horaFin.trim();
+    }
+    
+    public void setDia(String dia) {
+        if (dia == null || dia.trim().isEmpty()) {
+            throw new IllegalArgumentException("El día no puede ser nulo o vacío");
+        }
+        String[] diasValidos = {"LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES", "SÁBADO"};
+        String diaUpper = dia.trim().toUpperCase();
+        boolean esValido = Arrays.stream(diasValidos).anyMatch(d -> d.equals(diaUpper));
+        if (!esValido) {
+            throw new IllegalArgumentException("Día inválido. Use: Lunes, Martes, Miércoles, Jueves, Viernes, Sábado");
+        }
+        this.dia = diaUpper;
+    }
+    
     public List<Object> recuperarHorario() {
         return new ArrayList<>(List.of(this.getHoraInicio(), this.getHoraFin(), this.getDia()));
     }
