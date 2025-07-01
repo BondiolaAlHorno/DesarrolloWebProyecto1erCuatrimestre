@@ -40,24 +40,6 @@ public class ControladorHistorialAsistencia {
         return  comisionesMateria;
     }
 
-    public List<MateriaImplementada> recuperarListadoMateriasCursadas(Estudiante estudiante) {
-//        List<MateriaImplementada> materias = estudiante.getMaterias().stream().map(MateriaEstudiante::getMateria).collect(Collectors.toList());
-        List<MateriaImplementada> materias = new ArrayList<>();
-        for (MateriaEstudiante materiaEstudiante : estudiante.getMaterias()){
-            materias.add(materiaEstudiante.getMateria());
-        }
-        return materias;
-    }
-
-    public List<LocalDate> recuperarListadoDeFechas(List<AsistenciaEstudiante> listaAsistencia){
-//        List<LocalDate> listaFecha = listaAsistencia.stream().map(AsistenciaEstudiante::getFecha).collect(Collectors.toList());
-        List<LocalDate> listaFecha = new ArrayList<>();
-        for (AsistenciaEstudiante asistencia : listaAsistencia){
-            listaFecha.add(asistencia.getFecha());
-        }
-        return listaFecha;
-    }
-
     public List<AsistenciaEstudiante> recuperarListadoAsistenciaPorMateria(List<AsistenciaEstudiante> listaAsistencia, MateriaImplementada materia){
 //        List<AsistenciaEstudiante> asistencias = listaAsistencia.stream().filter(asistencia -> materia.equals(asistencia.getMateria())).collect(Collectors.toList());
         List<AsistenciaEstudiante> asistencias = new ArrayList<>();

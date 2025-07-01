@@ -34,6 +34,15 @@ public class Estudiante extends Persona {
     public List<Object> recuperarEstudiante(){
         return new ArrayList<>(List.of(this.getNombre(),this.getApellido(),this.getDni(),this.getCarreras(),this.getMaterias()));
     }
+
+    public List<MateriaImplementada> recuperarListadoMateriasCursadas() {
+//        List<MateriaImplementada> materias = estudiante.getMaterias().stream().map(MateriaEstudiante::getMateria).collect(Collectors.toList());
+        List<MateriaImplementada> materias = new ArrayList<>();
+        for (MateriaEstudiante materiaEstudiante : this.getMaterias()){
+            materias.add(materiaEstudiante.getMateria());
+        }
+        return materias;
+    }
 //    public void agregarCarrera(Carrera carrera){
 //        this.carreras.add(carrera);
 //    }

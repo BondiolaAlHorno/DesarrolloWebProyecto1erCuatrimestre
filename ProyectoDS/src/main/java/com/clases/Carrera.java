@@ -14,11 +14,13 @@ public class Carrera {
     private String nombre;
     private List<Materia> materias;
     private String duracion;
+    private List<Comision> comisiones;
 
     public Carrera(String nombre, List<Materia> materias, String duracion) {
         this.nombre = nombre;
         this.materias = materias != null ? new ArrayList<>(materias) : new ArrayList<>();
         this.duracion = duracion;
+        this.comisiones = new ArrayList<>();
     }
 
     // Constructor por defecto
@@ -62,6 +64,7 @@ public class Carrera {
                 "nombre='" + nombre + '\'' +
                 ", duracion='" + duracion + '\'' +
                 ", cantidadMaterias=" + (materias != null ? materias.size() : 0) +
+                ", cantidadComisiones=" + (comisiones != null ? comisiones.size() : 0) +
                 '}';
     }
 }
