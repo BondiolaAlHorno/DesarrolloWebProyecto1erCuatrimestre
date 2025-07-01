@@ -20,31 +20,19 @@ public class MateriaEstudiante {
     private Boolean estadoCursada;
     private Boolean equivalencia;
 
-    public MateriaEstudiante(Estudiante estudiante,
-                             MateriaImplementada materia,
-                             List<InstanciaEvaluativa> evaluaciones,
-                             EvalucaionFinal evalucaionFinal,
-                             Boolean estadoPromocion,
-                             Boolean estadoCursada,
-                             Boolean equivalencia){
+    public MateriaEstudiante(Estudiante estudiante, MateriaImplementada materia,Boolean estadoCursada){
         this.estudiante = estudiante;
         this.materia = materia;
-        this.evaluaciones = evaluaciones;
-        this.evalucaionFinal = evalucaionFinal;
-        this.estadoPromocion = estadoPromocion;
+        this.evaluaciones = new ArrayList<>();
+        this.evalucaionFinal = null;
+        this.estadoPromocion = true;
         this.estadoCursada = estadoCursada;
-        this.equivalencia = equivalencia;
+        this.equivalencia = false;
     }
 
     //MÉTODO DE CREACIÓN DE "MATERIA"
-    public static MateriaEstudiante altaMateriaEstudiante(Estudiante estudiante,
-                                                          MateriaImplementada materia,
-                                                          List<InstanciaEvaluativa> evaluaciones,
-                                                          EvalucaionFinal evalucaionFinal,
-                                                          Boolean estadoPromocion,
-                                                          Boolean estadoCursada,
-                                                          Boolean equivalencia){
-        return new MateriaEstudiante(estudiante,materia,evaluaciones,evalucaionFinal,estadoPromocion,estadoCursada,equivalencia);
+    public static MateriaEstudiante altaMateriaEstudiante(Estudiante estudiante,MateriaImplementada materia,Boolean estadoCursada){
+        return new MateriaEstudiante(estudiante,materia,estadoCursada);
     }
 
     //MÉTODO DE MODIFICACIÓN DE "MATERIA"
