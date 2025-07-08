@@ -30,15 +30,15 @@ public class ControladorHistorialAsistencia {
         return asistencias;
     }
 
-    public List<Comision> recuperarListadoDeComisionesPorCarrera(Carrera carrera, List<Comision> comisiones){
-        List<Comision> comisionesMateria = new ArrayList<>();
-        for(Comision comision : comisiones){
-            if (comision.getCarrera().equals(carrera)){
-                comisionesMateria.add(comision);
-            }
-        }
-        return  comisionesMateria;
-    }
+//    public List<Comision> recuperarListadoDeComisionesPorCarrera(Carrera carrera, List<Comision> comisiones){
+//        List<Comision> comisionesMateria = new ArrayList<>();
+//        for(Comision comision : comisiones){
+//            if (comision.getCarrera().equals(carrera)){
+//                comisionesMateria.add(comision);
+//            }
+//        }
+//        return  comisionesMateria;
+//    }
 
     public List<AsistenciaEstudiante> recuperarListadoAsistenciaPorMateria(List<AsistenciaEstudiante> listaAsistencia, MateriaImplementada materia){
 //        List<AsistenciaEstudiante> asistencias = listaAsistencia.stream().filter(asistencia -> materia.equals(asistencia.getMateria())).collect(Collectors.toList());
